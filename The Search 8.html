@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<html lang="km">    
+<head>
+  <head>
+    <link href='https://raw.githack.com/Neasreyka/Admin-logo/main/jw%202.0.8.css' rel='stylesheet'/> 
+	<title> </title>
+	</head>
+<body>
+  <script src='https://cdn.jwplayer.com/libraries/IDzF9Zmk.js' type='text/javascript'></script>
+  <style>
+  #player {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .jwplayer .jw-rightclick .jw-rightclick-list {
+        border-radius: 1px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+</style>
+	<!-- Player -->
+<div id="player"></div>
+<script>
+  const playerInstance = jwplayer("player").setup({
+  controls: true,
+  sharing: false,
+  displaytitle: false,
+  displaydescription: true,
+  abouttext: "",
+  aboutlink: "",
+
+  skin: {
+    name: ""
+  },
+  logo: {
+    file:
+      "https://blogger.googleusercontent.com/img/a/AVvXsEjvSrgwjAWkqqX0u2zsBVfuuplsvWqZw6NOqO6HU3Cs_nx9OXXCxtCinSFKzbSIxHGKj6jp4Rzan6jFEazN8fuoXfos7SCMoPIh06KG1EsgdmlmZ5iwu0HNRaJ_as2sIGLGXeRptVz_DP9miQg_c_-0vebEEnxVujotIHcEDG4Gv-fJUxkJj2uYhlMvWLyh=s150 ",
+    link: " "
+  },
+  captions: {
+    color: "#FFF",
+    fontSize: 12,
+    backgroundOpacity: 60,
+    edgeStyle: "uniform"
+  },
+
+  playlist: [
+    {
+      title: " ",
+      description: " ",
+      image: "#",
+      sources: [
+      {
+          file:
+            "https://cdn.dzen.ru/vod/converted-video/vod-content/31/40/34/54/55/53/41/83/66/3a9e3800-8fc7-4397-8fa2-4e6e1be9855a/kaltura/desc_020bb071531ba77f58921db1ef141860/2586361751450543757/ysign1=ffc446ac0d207008b0fdde062d0928037635f52cf406e1f1797afed70bc06436,abcID=967,from=zen,pfx,sfx,ts=659ecf2b/manifest.mpd?vsid=46a605d572835f2587b830eabed56b54b9c3ca1e0e79xZWPx1234x1704042542&clid=495&dzenuid=&slots=925788%2C0%2C72%3B931635%2C0%2C96%3B933783%2C0%2C26%3B938649%2C0%2C67&from=zen&partner-id=2085134&video-category-id=0&imp-id=undefined&gzip=1&reqid=925618026.46.1704042539870.65194&video-content-id=vjebdT0-a5CM&partner-stat-id=0&duration=3548&puid=10000000778590984&from_block=site_desktop&strongest_id=10000000778590984&item_id=-8171267212829336688&stream_block=video_related%3Avideo_page&rid=925618026.46.1704042539870.65194&ppi=site_desktop%3Adzen%3Avideo_site_desktop&frontend_vh_reqid=925618026.46.1704042539870.65194&zen-content-id=vjebdT0-a5CM&video-content-duration=3528&content_id=vjebdT0-a5CM&dzen-exp-ids=9257...",
+          label: "Auto",
+          default: true
+        
+        }],
+        captions: [
+        {file:"https://res.cloudinary.com/dkymshypa/raw/upload/v1704040959/The%20Search/8_sjxw2c.vtt",
+          label: "Khmer",
+          kind: "captions",
+          default: true
+
+        },
+        {
+        file:"https://res.cloudinary.com/dkymshypa/raw/upload/v1704040973/The%20Search/Eng/8_ungg3f.vtt",
+          label: "English",
+          kind: "captions",
+        },
+        {
+        file:"",
+          label: "Italian",
+          kind: "captions",
+        },
+        {
+        file:"",
+          label: "Indonesia",
+          kind: "captions",
+        },
+        {
+        file:"",
+          label: "Thai",  
+
+          kind: "captions",
+        },
+       
+        {
+        file:"https://res.cloudinary.com/dkymshypa/raw/upload/v1704040986/The%20Search/Ar/8_yroaeb.vtt",
+          label: "Arabic",
+          kind: "captions",
+        },
+        {
+        file:"",
+          label: "Vietnam",
+          kind: "captions",
+        },
+        
+        {
+        file:"",
+          label: "Malay",
+          kind: "captions",
+        }],
+    }
+  ],
+  advertising: {
+    client: "vast",
+  }
+});
+
+playerInstance.on("ready", function () {
+  const buttonId = "download-video-button";
+  const iconPath =
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+PHBhdGggZD0iTTMgMTloMTh2Mkgzdi0yem0xMC01LjgyOEwxOS4wNzEgNy4xbDEuNDE0IDEuNDE0TDEyIDE3IDMuNTE1IDguNTE1IDQuOTI5IDcuMSAxMSAxMy4xN1YyaDJ2MTEuMTcyeiIgZmlsbD0icmdiYSgyNDcsMjQ3LDI0NywxKSIvPjwvc3ZnPg==";
+  const tooltipText = "Download";
+  // This function is executed when the button is clicked
+  function buttonClickAction() {
+    const playlistItem = playerInstance.getPlaylistItem();
+    const anchor = document.createElement("a");
+    const fileUrl = playlistItem.file;
+    anchor.setAttribute("href", fileUrl);
+    const downloadName = playlistItem.file.split("/").pop();
+    anchor.setAttribute("download", downloadName);
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  }
+
+  // Move the timeslider in-line with other controls
+  const playerContainer = playerInstance.getContainer();
+  const buttonContainer = playerContainer.querySelector(".jw-button-container");
+  const spacer = buttonContainer.querySelector(".jw-spacer");
+  const timeSlider = playerContainer.querySelector(".jw-slider-time");
+  // Forward 10 seconds
+  const rewindContainer = playerContainer.querySelector(
+    ".jw-display-icon-rewind"
+  );
+  const forwardContainer = rewindContainer.cloneNode(true);
+  const forwardDisplayButton = forwardContainer.querySelector(
+    ".jw-icon-rewind"
+  );
+  forwardDisplayButton.style.transform = "scaleX(-1)";
+  forwardDisplayButton.ariaLabel = "Forward 10 Seconds";
+  const nextContainer = playerContainer.querySelector(".jw-display-icon-next");  nextContainer.parentNode.insertBefore(forwardContainer, nextContainer);
+  // control bar icon
+  playerContainer.querySelector(".jw-display-icon-next").style.display = "none"; // hide next button
+  const rewindControlBarButton = buttonContainer.querySelector(
+    ".jw-icon-rewind"
+  );
+  const forwardControlBarButton = rewindControlBarButton.cloneNode(true);
+  forwardControlBarButton.style.transform = "scaleX(-1)";
+  forwardControlBarButton.ariaLabel = "Forward 10 Seconds";  rewindControlBarButton.parentNode.insertBefore(
+    forwardControlBarButton,    rewindControlBarButton.nextElementSibling
+  );
+  // add onclick handlers
+  [forwardDisplayButton, forwardControlBarButton].forEach((button) => {
+    button.onclick = () => {     playerInstance.seek(playerInstance.getPosition() + 10);
+    };
+  });
+});
+</script>
+</body>
+</html>
